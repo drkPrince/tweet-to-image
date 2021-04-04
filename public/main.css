@@ -1,0 +1,139 @@
+
+@font-face {
+	font-family: Lib;
+	src: url('/LiberationSans-Regular.ttf');
+}
+
+@font-face {
+	font-family: Lib-Bold;
+	src: url('/LiberationSans-Bold.ttf');
+}
+
+body {
+	font-family: 'Helvetica', Lib, 'Roboto', sans-serrif;
+	font-size: 62.5%;
+	background: snow;
+}
+
+
+.bold {
+	font-family: 'Lib-Bold';
+}
+
+
+footer {
+	text-align: center;
+	margin-top: 6rem;
+	padding-bottom: 3rem;
+}
+
+
+
+.title {
+	font-size: 4rem;
+	background: linear-gradient(to right, #1DA1F2, #e41a9d);
+	background-clip: text;
+	color: transparent;
+	font-family: Lib-Bold;
+	text-align: center;
+}
+
+
+.con {
+    transition: all 2s !important;
+}
+
+.container {
+	white-space: pre-line;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .1s ease-in;
+	border-radius: 6px;
+	background: rgba( 255, 255, 255, 0.56 );
+   
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    border: 1px rgba(255,255,255,0.4) solid;
+    border-bottom: 1px rgba(40,40,40,0.30) solid;
+    border-right: 1px rgba(40,40,40,0.30) solid;
+
+}
+
+.tweet {
+    transition: all 2s !important;
+}
+
+.settings {
+	animation: fadein 2s !important;
+}
+
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+
+	0% {
+		opacity: 1;
+	}
+}
+
+.non-tweet {
+	min-height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.3rem;
+}
+
+
+.user {
+	display: flex;
+	align-items: center;
+}
+
+
+.names {
+	margin-left: 4px;
+}
+
+
+.name {
+	display: flex;
+
+}
+
+.n {
+	margin-right: 2px;
+}
+
+.username {
+	color: #888;
+	margin-top: 2px;
+}
+
+.user-img {
+	width: 3rem; height: 3rem;
+	border-radius: 1000px;
+}
+
+
+.time_source {	
+	display: flex;
+	align-items: center;
+	margin-top: 0.7rem;
+}
+
+
+.metrics {
+	display: flex;
+	margin-top: 0.9rem;
+}
+
+.metrics > div {
+	margin-right: 1rem;
+}
+
+.sec {
+	/*color: #657786;*/
+	color: #536371;
+}
