@@ -105,15 +105,17 @@ function App() {
     const convert = async (format) => {
         const node = tweetRef.current
 
-       // htmlToImage.toCanvas(node)
-       //   .then(function (canvas) {
-       //     document.body.appendChild(canvas);
-       //   });
-
-       htmlToImage.toPng(node)
-         .then(function (dataUrl) {
-           download(dataUrl, 'my-node.png');
+       htmlToImage.toCanvas(node)
+         .then(function (canvas) {
+           document.body.appendChild(canvas);
+           var dataURL = canvas.toDataURL('image/jpeg', 1.0)
+           download(dataURL, 'my-node.png');
          });
+
+        // htmlToImage.toPng(node)
+        //  .then(function (dataUrl) {
+        //    download(dataUrl, 'my-node.png');
+        //  });
 
 
     }
@@ -168,13 +170,13 @@ function App() {
                         <div className='container' style={{transform: `scale(${scale})`}} >
                             { hint ? 
                                 <Box className='non-tweet'>
-                                    <Text>Paste the URL of the tweet in the box above</Text>
+                                    <Text p='4'>Paste the URL of the tweet in the box above</Text>
                                 </Box>
                             : 
                             loading ? <Box className='non-tweet'><Spinner /> </Box>
                             :
                             error ? 
-                                <Box className='non-tweet'><Text fontSize='20px'>Something went wrong. Please try again.</Text></Box>
+                                <Box className='non-tweet'><Text p='4' fontSize='20px'>Something went wrong. Please try again.</Text></Box>
                             :
                             tweetData && <Tweet
                                 tweet={tweetData}

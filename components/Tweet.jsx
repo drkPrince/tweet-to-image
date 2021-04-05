@@ -82,24 +82,18 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	            </Text>
 	            {image && <Image src={image} mt='2' fit='cover'/>}
 	            <div className='time_source sec'>
-	            	<div>
-	            		<Text fontSize={font_size_small}>
-	            			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>
-	            			{showSource && <span> · {source}</span>}
-	            		</Text>
-	            	</div>
+            		<Text fontSize={font_size_small}>
+            			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>
+            			{showSource && <span> · {source}</span>}
+            		</Text>
 	            </div>
 	            {showMetrics && <div className='metrics'>
-	                <div>
-	                	<Text fontSize={font_size_small} className='bold'>
-	                		{modLikes} <span className='sec'> Likes</span>
-	                	</Text>
-	                </div>
-	                <div>
-	                	<Text fontSize={font_size_small} className='bold'>
-	                		{modRetweets} <span className='sec'> Retweets</span>
-	                	</Text>
-	                </div>
+                	<Text fontSize={font_size_small} className='bold likes'>
+                		{modLikes} <span className='sec'> Likes</span>
+                	</Text>
+                	<Text fontSize={font_size_small} className='bold'>
+                		{modRetweets} <span className='sec'> Retweets</span>
+                	</Text>
 	            </div>}
 	        </div>
 	  	</Box>
