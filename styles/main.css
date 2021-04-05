@@ -1,4 +1,5 @@
 
+
 @font-face {
 	font-family: Lib;
 	src: url('/LiberationSans-Regular.ttf');
@@ -9,10 +10,14 @@
 	src: url('/LiberationSans-Bold.ttf');
 }
 
+* {
+	font-family: Lib, sans-serif;
+}
+
+
 body {
-	font-family: 'Helvetica', Lib, 'Roboto', sans-serrif;
+	font-family: inherit;
 	font-size: 62.5%;
-	background: snow;
 }
 
 
@@ -39,9 +44,6 @@ footer {
 }
 
 
-.con {
-    transition: all 2s !important;
-}
 
 .container {
 	white-space: pre-line;
@@ -51,7 +53,7 @@ footer {
 	transition: all .1s ease-in;
 	border-radius: 6px;
 	background: rgba( 255, 255, 255, 0.56 );
-   
+
     box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
     border: 1px rgba(255,255,255,0.4) solid;
     border-bottom: 1px rgba(40,40,40,0.30) solid;
@@ -59,23 +61,6 @@ footer {
 
 }
 
-.tweet {
-    transition: all 2s !important;
-}
-
-.settings {
-	animation: fadein 2s !important;
-}
-
-@keyframes fadein {
-	0% {
-		opacity: 0;
-	}
-
-	0% {
-		opacity: 1;
-	}
-}
 
 .non-tweet {
 	min-height: 200px;
@@ -94,6 +79,7 @@ footer {
 
 .names {
 	margin-left: 4px;
+	flex: 1;
 }
 
 
@@ -129,11 +115,16 @@ footer {
 	margin-top: 0.9rem;
 }
 
-.metrics > div {
+.likes {
 	margin-right: 1rem;
 }
 
 .sec {
 	/*color: #657786;*/
 	color: #536371;
+}
+
+p {
+
+	min-width: 100%;
 }

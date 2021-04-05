@@ -1,7 +1,14 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
-import domtoimage from 'dom-to-image'
+
+import domtoimage from 'dom-to-image';
+
 import { saveAs } from 'file-saver'
+
+import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
+
+import Tweet from '../components/Tweet'
+
 
 import {
     Text,
@@ -26,9 +33,6 @@ import {
     MenuItem,
 } from "@chakra-ui/react"
 
-import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
-
-import Tweet from '../components/Tweet'
 
 function App() {
     const tweetRef = useRef(null)
@@ -40,7 +44,7 @@ function App() {
     const [showMetrics, setShowMetrics] = useState(true)
     const [showSource, setShowSource] = useState(true)
 
-    const [bg, setBg] = useState('linear-gradient(to right, rgb(78, 84, 200), rgb(143, 148, 251))')
+    const [bg, setBg] = useState('linear-gradient(to right, rgb(237, 33, 58), rgb(147, 41, 30))')
     const [scale, setScale] = useState(0.9)
 
     const [hint, setHint] = useState(true)
@@ -66,37 +70,50 @@ function App() {
     }
 
     const convert = async (format) => {
+
         const node = tweetRef.current
+        const scale = 2
 
         let dataUrl
+
+
+        const style = {
+            transform: 'scale(2)',
+            transformOrigin: 'top left',
+        }
+
+        const param = {
+           height: node.offsetHeight * scale,
+           width: node.offsetWidth * scale,
+           quality: 1,
+           style
+        }
 
         switch (format) {
             case 'png':
                 {
-                    dataUrl = await domtoimage.toPng(node)
+                    dataUrl = await domtoimage.toPng(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
 
             case 'jpeg':
                 {
-                    dataUrl = await domtoimage.toJpeg(node)
+                    dataUrl = await domtoimage.toJpeg(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
 
             case 'svg':
                 {
-                    dataUrl = await domtoimage.toSvg(node)
+                    dataUrl = await domtoimage.toSvg(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
         }
-
-        const img = new Image()
-        img.src = dataUrl
-        document.body.appendChild(img)
-
-        const blob = await domtoimage.toBlob(node)
-        window.saveAs(blob, `your-tweet.${format}`)
-
     }
 
-    const pic_size = { base: "90vw", md: "90vh", lg: "50vw" }
+    const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
     const flex = { base: 'column', lg: 'row' }
     const padX = { base: '1rem' }
     const padY = { base: '3rem', md: '5rem' }
@@ -142,17 +159,17 @@ function App() {
 
             <Flex my="16" direction={flex} p="4">
                 <Box m="0 auto">
-                    <Box className='con' ref={tweetRef} style={{background : bg}} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY}>
+                    <Box className='con' style={{background : bg}} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY} ref={tweetRef}>
                         <div className='container' style={{transform: `scale(${scale})`}} >
                             { hint ? 
                                 <Box className='non-tweet'>
-                                    <Text>Paste the URL of the tweet in the box above</Text>
+                                    <Text p='4'>Paste the URL of the tweet in the box above</Text>
                                 </Box>
                             : 
                             loading ? <Box className='non-tweet'><Spinner /> </Box>
                             :
                             error ? 
-                                <Box className='non-tweet'><Text fontSize='20px'>Something went wrong. Please try again.</Text></Box>
+                                <Box className='non-tweet'><Text p='4' fontSize='20px'>Something went wrong. Please try again.</Text></Box>
                             :
                             tweetData && <Tweet
                                 tweet={tweetData}
