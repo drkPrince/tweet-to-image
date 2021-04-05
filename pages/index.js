@@ -8,6 +8,7 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 import download from 'downloadjs'
 
+// import html2canvas from 'html2canvas';
 
 import {
     Text,
@@ -71,52 +72,56 @@ function App() {
         }
     }
 
-    // const convert = async (format) => {
-    //     const node = tweetRef.current
-
-    //     let dataUrl
-
-    //     switch (format) {
-    //         case 'png':
-    //             {
-    //                 dataUrl = await domtoimage.toPng(node)
-    //             }
-
-    //         case 'jpeg':
-    //             {
-    //                 dataUrl = await domtoimage.toJpeg(node)
-    //             }
-
-    //         case 'svg':
-    //             {
-    //                 dataUrl = await domtoimage.toSvg(node)
-    //             }
-    //     }
-
-    //     const img = new Image()
-    //     img.src = dataUrl
-    //     document.body.appendChild(img)
-
-    //     const blob = await domtoimage.toBlob(node)
-    //     window.saveAs(blob, `your-tweet.${format}`)
-
-    // }
-
     const convert = async (format) => {
         const node = tweetRef.current
 
-       htmlToImage.toCanvas(node)
-         .then(function (canvas) {
-           document.body.appendChild(canvas);
-           var dataURL = canvas.toDataURL('image/jpeg', 1.0)
-           download(dataURL, 'my-node.png');
-         });
+        console.dir(node)
 
-        // htmlToImage.toPng(node)
-        //  .then(function (dataUrl) {
-        //    download(dataUrl, 'my-node.png');
-        //  });
+        const scale = 2.5    
 
+        const style = {
+            transform: 'scale('+scale+')',
+            transformOrigin: 'top left',
+            width: node.offsetWidth + "px",
+            height: node.offsetHeight + "px"
+        }
+
+        const param = {
+            height: node.offsetHeight * scale,
+            width: node.offsetWidth * scale,
+            quality: 1,
+            style
+        }
+
+        let dataUrl
+
+        switch (format) {
+            case 'png':
+                {
+                    dataUrl = await domtoimage.toPng(node, param)
+                    var link = document.createElement('a');
+                    link.download = 'my-image-name.png';
+                    link.href = dataUrl;
+                    link.click();
+                }
+
+            case 'jpeg':
+                {
+                    dataUrl = await domtoimage.toJpeg(node, param)
+                }
+
+            case 'svg':
+                {
+                    dataUrl = await domtoimage.toSvg(node, param)
+                }
+        }
+
+        const img = new Image()
+        img.src = dataUrl
+        document.body.appendChild(img)
+
+        // const blob = await domtoimage.toBlob(node, param)
+        // window.saveAs(blob, `your-tweet.${format}`)
 
     }
 
@@ -166,7 +171,7 @@ function App() {
 
             <Flex my="16" direction={flex} p="4">
                 <Box m="0 auto">
-                    <Box className='con' ref={tweetRef} style={{background : bg}} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY}>
+                    <Box className='con' style={{background : bg}} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY} ref={tweetRef}>
                         <div className='container' style={{transform: `scale(${scale})`}} >
                             { hint ? 
                                 <Box className='non-tweet'>
