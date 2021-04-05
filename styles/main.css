@@ -140,4 +140,6 @@ footer {
 
 p {
 	min-width: 100%;
+	text-rendering: optimizeLegibility;
+    letter-spacing: 0.06px;
 }
