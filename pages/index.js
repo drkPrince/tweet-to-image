@@ -95,33 +95,35 @@ function App() {
 
         let dataUrl
 
-        switch (format) {
-            case 'png':
-                {
-                    dataUrl = await domtoimage.toPng(node, param)
-                    var link = document.createElement('a');
-                    link.download = 'my-image-name.png';
-                    link.href = dataUrl;
-                    link.click();
-                }
+        // switch (format) {
+        //     case 'png':
+        //         {
+        //             dataUrl = await domtoimage.toPng(node, param)
+                   
+        //         }
 
-            case 'jpeg':
-                {
-                    dataUrl = await domtoimage.toJpeg(node, param)
-                }
+        //     case 'jpeg':
+        //         {
+        //             dataUrl = await domtoimage.toJpeg(node, param)
+        //         }
 
-            case 'svg':
-                {
-                    dataUrl = await domtoimage.toSvg(node, param)
-                }
-        }
+        //     case 'svg':
+        //         {
+        //             dataUrl = await domtoimage.toSvg(node, param)
+        //         }
+        // }
 
-        const img = new Image()
-        img.src = dataUrl
-        document.body.appendChild(img)
+        // const link = document.createElement('a')
+        // link.download = 'my-image-name.png'
+        // link.href = dataUrl
+        // link.click()
 
-        // const blob = await domtoimage.toBlob(node, param)
-        // window.saveAs(blob, `your-tweet.${format}`)
+        // const img = new Image()
+        // img.src = dataUrl
+        // document.body.appendChild(img)
+
+        const blob = await domtoimage.toBlob(node, param)
+        window.saveAs(blob, `your-tweet.${format}`)
 
     }
 
