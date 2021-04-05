@@ -3,6 +3,12 @@ import { useState, useRef } from 'react'
 import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
 
+import * as htmlToImage from 'html-to-image';
+import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+
+import download from 'downloadjs'
+
+
 import {
     Text,
     Center,
@@ -65,34 +71,50 @@ function App() {
         }
     }
 
+    // const convert = async (format) => {
+    //     const node = tweetRef.current
+
+    //     let dataUrl
+
+    //     switch (format) {
+    //         case 'png':
+    //             {
+    //                 dataUrl = await domtoimage.toPng(node)
+    //             }
+
+    //         case 'jpeg':
+    //             {
+    //                 dataUrl = await domtoimage.toJpeg(node)
+    //             }
+
+    //         case 'svg':
+    //             {
+    //                 dataUrl = await domtoimage.toSvg(node)
+    //             }
+    //     }
+
+    //     const img = new Image()
+    //     img.src = dataUrl
+    //     document.body.appendChild(img)
+
+    //     const blob = await domtoimage.toBlob(node)
+    //     window.saveAs(blob, `your-tweet.${format}`)
+
+    // }
+
     const convert = async (format) => {
         const node = tweetRef.current
 
-        let dataUrl
+       // htmlToImage.toCanvas(node)
+       //   .then(function (canvas) {
+       //     document.body.appendChild(canvas);
+       //   });
 
-        switch (format) {
-            case 'png':
-                {
-                    dataUrl = await domtoimage.toPng(node)
-                }
+       htmlToImage.toPng(node)
+         .then(function (dataUrl) {
+           download(dataUrl, 'my-node.png');
+         });
 
-            case 'jpeg':
-                {
-                    dataUrl = await domtoimage.toJpeg(node)
-                }
-
-            case 'svg':
-                {
-                    dataUrl = await domtoimage.toSvg(node)
-                }
-        }
-
-        const img = new Image()
-        img.src = dataUrl
-        document.body.appendChild(img)
-
-        const blob = await domtoimage.toBlob(node)
-        window.saveAs(blob, `your-tweet.${format}`)
 
     }
 
