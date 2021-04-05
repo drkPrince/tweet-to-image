@@ -53,9 +53,6 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	const modLikes = likes >= 1000 ? `${(likes/1000).toPrecision(2)}k` : likes
 	const modRetweets = retweets >= 1000 ? `${(retweets/1000).toPrecision(2)}k` : retweets
 
-	// const font_size = { base: "15px", md: "19px", lg: "19px" }
-	// const font_size_small = { base: "12px", md: "18px", lg: "18px" }
-
 	const font_size = { base: "15px", md: "17px", lg: "19px" }
 	const font_size_small = { base: "13.5px", md: "15.5px", lg: "17.5px" }
 
@@ -84,16 +81,11 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	            <div className='time_source sec'>
             		<Text fontSize={font_size_small}>
             			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>
-            			{showSource && <span> · {source}</span>}
+            			
             		</Text>
 	            </div>
 	            {showMetrics && <div className='metrics'>
-                	<Text fontSize={font_size_small} className='bold likes'>
-                		{modLikes} <span className='sec'> Likes</span>
-                	</Text>
-                	<Text fontSize={font_size_small} className='bold'>
-                		{modRetweets} <span className='sec'> Retweets</span>
-                	</Text>
+                	<h3> {modLikes} <span className='sec'> Likes</span>  {modRetweets} <span className='sec'> Retweets</span></h3>
 	            </div>}
 	        </div>
 	  	</Box>
@@ -101,3 +93,17 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 }
 
 export default Tweet
+
+/* 
+
+{showSource && <span> · {source}</span>}
+
+
+<Text fontSize={font_size_small} className='bold likes'>
+	{modLikes} <span className='sec'> Likes</span>
+</Text>
+<Text fontSize={font_size_small} className='bold'>
+	{modRetweets} <span className='sec'> Retweets</span>
+</Text>
+
+ */
