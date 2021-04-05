@@ -81,14 +81,13 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	            <div className='time_source sec'>
             		<Text fontSize={font_size_small}>
             			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>
-            			
+            			{showSource && <span> · {source}</span>}
             		</Text>
 	            </div>
 	            {showMetrics && <div className='metrics'>
                 	<Text fontSize={font_size_small}>
                 		<span className='bold'>{modLikes}</span> <span className='sec likes'> Likes</span>  <span className='bold'>{modRetweets}</span> <span className='sec'> Retweets</span>
                 	</Text>
-
 	            </div>}
 	        </div>
 	  	</Box>
