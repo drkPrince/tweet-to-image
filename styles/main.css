@@ -137,3 +137,7 @@ footer {
 	/*color: #657786;*/
 	color: #536371;
 }
+
+p {
+	min-width: 100%;
+}

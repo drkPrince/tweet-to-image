@@ -85,11 +85,8 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
             		</Text>
 	            </div>
 	            {showMetrics && <div className='metrics'>
-                	<Text fontSize={font_size_small} className='bold likes'>
-                		{modLikes} <span className='sec'> Likes</span>
-                	</Text>
-                	<Text fontSize={font_size_small} className='bold'>
-                		{modRetweets} <span className='sec'> Retweets</span>
+                	<Text fontSize={font_size_small}>
+                		<span className='bold'>{modLikes}</span> <span className='sec likes'> Likes</span>  <span className='bold'>{modRetweets}</span> <span className='sec'> Retweets</span>
                 	</Text>
 
 	            </div>}
