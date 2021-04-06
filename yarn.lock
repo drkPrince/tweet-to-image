@@ -1398,6 +1398,11 @@ diffie-hellman@^5.0.0:
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
 
+dom-to-image-more@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/dom-to-image-more/-/dom-to-image-more-2.8.0.tgz#c60ae3858796c67c7f9dc25f7c5f12bfc22067eb"
+  integrity sha512-YqlHI1i+TMuaKwkFRO5oDPjC3eWf+6Hln9rHZcnFYvmoXwCrGZmZ7BYXBJOjw5utYg2Lp+QF9YO96F7CsDC4eQ==
+
 dom-to-image@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/dom-to-image/-/dom-to-image-2.6.0.tgz#8a503608088c87b1c22f9034ae032e1898955867"

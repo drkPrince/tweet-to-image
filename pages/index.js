@@ -1,12 +1,17 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
-import domtoimage from '../dti'
-import { saveAs } from 'file-saver'
 
-import * as htmlToImage from 'html-to-image';
+// import domtoimage from '../dti'
+import domtoimage from 'dom-to-image-more';
+
+// import * as htmlToImage from 'html-to-image';
 // import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
-import download from 'downloadjs'
+// import download from 'downloadjs'
+
+import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
+
+import Tweet from '../components/Tweet'
 
 
 import {
@@ -32,9 +37,6 @@ import {
     MenuItem,
 } from "@chakra-ui/react"
 
-import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
-
-import Tweet from '../components/Tweet'
 
 function App() {
     const tweetRef = useRef(null)
@@ -83,6 +85,8 @@ function App() {
         const style = {
             transform: 'scale('+scale+')',
             'transform-origin': 'top left',
+            fontFamily: `Lib, sans-serif`,
+            letterSpacing: 'initial',
             // width: node.offsetWidth + "px",
             // height: node.offsetHeight + "px",
         }
@@ -93,7 +97,7 @@ function App() {
            style
         }
 
-        const blob = await htmlToImage.toPng(node, param)
+        const blob = await domtoimage.toPng(node, param)
         window.saveAs(blob, `your-tweet.png`)
         // window.saveAs(blob, `your-tweet.${format}`)
     }
