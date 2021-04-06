@@ -1,16 +1,13 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
-import domtoimage from 'dom-to-image'
+import domtoimage from '../dti'
 import { saveAs } from 'file-saver'
 
-import * as htmlToImage from 'html-to-image';
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
+// import * as htmlToImage from 'html-to-image';
+// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 import download from 'downloadjs'
 
-
-
-import html2canvas from 'html2canvas';
 
 import {
     Text,
@@ -103,7 +100,7 @@ function App() {
        
         const style = {
             transform: 'scale('+scale+')',
-            transformOrigin: 'top left',
+            'transform-origin': 'top left',
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
        }
@@ -111,7 +108,6 @@ function App() {
         const param = {
            height: node.offsetHeight * scale,
            width: node.offsetWidth * scale,
-           quality: 1,
            style
         }
 
