@@ -115,8 +115,9 @@ function App() {
            style
         }
 
-        const blob = await domtoimage.toBlob(node, param)
-        window.saveAs(blob, `your-tweet.${format}`)
+        const blob = await domtoimage.toPng(node, param)
+        window.saveAs(blob, `your-tweet.png`)
+        // window.saveAs(blob, `your-tweet.${format}`)
     }
 
     const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }

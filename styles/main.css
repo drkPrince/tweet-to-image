@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 /*@font-face {
 	font-family: Lib;
@@ -18,7 +18,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 62.5%;
 	background: snow;
-	font-weight: 300;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	letter-spacing: initial;
+	text-rendering: optimizeLegibility;
 }
 
 
@@ -82,6 +85,7 @@ footer {
 
 .names {
 	margin-left: 4px;
+	width: 90%;
 }
 
 
@@ -128,4 +132,9 @@ footer {
 
 p {
 	min-width: 100%;
+	font-variant-ligatures: contextual;
+    font-feature-settings: "calt";
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
 }
