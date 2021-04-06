@@ -7,7 +7,7 @@ import domtoimage from 'dom-to-image-more';
 // import * as htmlToImage from 'html-to-image';
 // import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
-// import download from 'downloadjs'
+import download from 'downloadjs'
 
 import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
 
@@ -77,18 +77,11 @@ function App() {
 
         const node = tweetRef.current
 
-        window.scroll(0, 0)
-
-        
-        const scale = 2.5    
-       
         const style = {
-            transform: 'scale('+scale+')',
-            'transform-origin': 'top left',
+            transform: 'scale(2.5)',
+            transformOrigin: 'top left',
             fontFamily: `Lib, sans-serif`,
             letterSpacing: 'initial',
-            // width: node.offsetWidth + "px",
-            // height: node.offsetHeight + "px",
         }
 
         const param = {
@@ -99,6 +92,7 @@ function App() {
 
         const blob = await domtoimage.toPng(node, param)
         window.saveAs(blob, `your-tweet.png`)
+        download(blob, 'your-download.png')
         // window.saveAs(blob, `your-tweet.${format}`)
     }
 
