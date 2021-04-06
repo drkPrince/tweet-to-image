@@ -63,7 +63,7 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 		<Box p={pad} rounded="sm" >
 			<div className='tweet'>
 	            <div className="user">
-	            	<Image src={dp} boxSize={img_size} borderRadius="full" />
+	            	<Image crossOrigin="anonymous" src={dp} boxSize={img_size} borderRadius="full" />
 	            	<div className="names">
 	            		<Text fontSize={font_size} className='bold name'>
             				<span className="n">{name}</span>
@@ -77,7 +77,7 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	            <Text fontSize={font_size} mt={3}>
 	           		{text}
 	            </Text>
-	            {image && <Image src={image} mt='2' fit='cover'/>}
+	            {image && <Image crossOrigin="anonymous" src={image} mt='2' fit='cover'/>}
 	            <div className='time_source sec'>
             		<Text fontSize={font_size_small}>
             			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>

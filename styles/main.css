@@ -141,5 +141,7 @@ footer {
 p {
 	min-width: 100%;
 	text-rendering: optimizeLegibility;
-    letter-spacing: 0.06px;
+    font-kerning: inherit;
+    font-stretch: normal;
+    font-optical-sizing: inherit;
 }

@@ -8,7 +8,9 @@ import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 import download from 'downloadjs'
 
-// import html2canvas from 'html2canvas';
+
+
+import html2canvas from 'html2canvas';
 
 import {
     Text,
@@ -76,23 +78,46 @@ function App() {
 
         const node = tweetRef.current
 
-        const scale = 2.5    
+        // window.scroll(0, 0)
 
+        // var e_x_offset = window.scrollX + node.getBoundingClientRect().left;
+        // var e_y_offset = window.scrollY + node.getBoundingClientRect().top;
+
+        // const canvas = await html2canvas(node, {allowTaint: true,
+        //     scale: 1,
+        //     useCORS: true,
+        //     width: node.offsetWidth*2,
+        //     height: node.offsetHeight*2,
+        //     x: e_x_offset,
+        //     y: e_y_offset,
+        //     scrollX: -window.scrollX,
+        //     scrollY: -window.scrollY
+        // })
+        // document.body.appendChild(canvas)
+        // const b64 = canvas.toDataURL("image/png")
+        // window.saveAs(b64, `your-tweet.png`)
+        
+
+        //Dom to image
+        const scale = 2.5    
+       
         const style = {
             transform: 'scale('+scale+')',
             transformOrigin: 'top left',
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
-            letterSpacing: '0.07px'
-        }
-
+            'text-rendering': 'optimizeLegibility',
+            'font-kerning': 'inherit',
+            'font-stretch': 'normal',
+            'font-optical-sizing': 'inherit',
+       }
 
         const param = {
-            height: node.offsetHeight * scale,
-            width: node.offsetWidth * scale,
-            quality: 1,
-            style
-        }
+           height: node.offsetHeight * scale,
+           width: node.offsetWidth * scale,
+           quality: 1,
+           style
+       }
 
         const blob = await domtoimage.toBlob(node, param)
         window.saveAs(blob, `your-tweet.${format}`)
