@@ -1,5 +1,7 @@
 
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+
+/*@font-face {
 	font-family: Lib;
 	src: url('/LiberationSans-Regular.ttf');
 }
@@ -8,16 +10,21 @@
 	font-family: Lib-Bold;
 	src: url('/LiberationSans-Bold.ttf');
 }
+*/
+
 
 body {
-	font-family: 'Helvetica', Lib, 'Roboto', sans-serrif;
+	/*font-family: 'Helvetica', Lib, 'Roboto', sans-serrif;*/
+	font-family: 'Roboto', sans-serif;
 	font-size: 62.5%;
 	background: snow;
+	font-weight: 300;
 }
 
 
 .bold {
-	font-family: 'Lib-Bold';
+	/*font-family: 'Lib-Bold';*/
+	font-weight: 700;
 }
 
 
@@ -34,14 +41,12 @@ footer {
 	background: linear-gradient(to right, #1DA1F2, #e41a9d);
 	background-clip: text;
 	color: transparent;
-	font-family: Lib-Bold;
+	/*font-family: Lib-Bold;*/
+	font-weight: 700;
 	text-align: center;
 }
 
 
-.con {
-    transition: all 2s !important;
-}
 
 .container {
 	white-space: pre-line;
@@ -123,8 +128,4 @@ footer {
 
 p {
 	min-width: 100%;
-	text-rendering: optimizeLegibility;
-    font-kerning: inherit;
-    font-stretch: normal;
-    font-optical-sizing: inherit;
 }

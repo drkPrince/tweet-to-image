@@ -106,10 +106,6 @@ function App() {
             transformOrigin: 'top left',
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
-            textRendering: 'optimizeLegibility',
-            fontKerning: 'inherit',
-            fontStretch: 'normal',
-            fontOpticalSizing: 'inherit',
        }
 
         const param = {
@@ -117,13 +113,13 @@ function App() {
            width: node.offsetWidth * scale,
            quality: 1,
            style
-       }
+        }
 
         const blob = await domtoimage.toBlob(node, param)
         window.saveAs(blob, `your-tweet.${format}`)
     }
 
-    const pic_size = { base: "90vw", md: "90vh", lg: "50vw" }
+    const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
     const flex = { base: 'column', lg: 'row' }
     const padX = { base: '1rem' }
     const padY = { base: '3rem', md: '5rem' }
