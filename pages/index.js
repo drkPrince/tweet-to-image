@@ -3,7 +3,7 @@ import { useState, useRef } from 'react'
 import domtoimage from '../dti'
 import { saveAs } from 'file-saver'
 
-// import * as htmlToImage from 'html-to-image';
+import * as htmlToImage from 'html-to-image';
 // import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
 
 import download from 'downloadjs'
@@ -46,7 +46,7 @@ function App() {
     const [showMetrics, setShowMetrics] = useState(true)
     const [showSource, setShowSource] = useState(true)
 
-    const [bg, setBg] = useState('linear-gradient(to right, rgb(78, 84, 200), rgb(143, 148, 251))')
+    const [bg, setBg] = useState('snow')
     const [scale, setScale] = useState(0.9)
 
     const [hint, setHint] = useState(true)
@@ -75,27 +75,9 @@ function App() {
 
         const node = tweetRef.current
 
-        // window.scroll(0, 0)
+        window.scroll(0, 0)
 
-        // var e_x_offset = window.scrollX + node.getBoundingClientRect().left;
-        // var e_y_offset = window.scrollY + node.getBoundingClientRect().top;
-
-        // const canvas = await html2canvas(node, {allowTaint: true,
-        //     scale: 1,
-        //     useCORS: true,
-        //     width: node.offsetWidth*2,
-        //     height: node.offsetHeight*2,
-        //     x: e_x_offset,
-        //     y: e_y_offset,
-        //     scrollX: -window.scrollX,
-        //     scrollY: -window.scrollY
-        // })
-        // document.body.appendChild(canvas)
-        // const b64 = canvas.toDataURL("image/png")
-        // window.saveAs(b64, `your-tweet.png`)
         
-
-        //Dom to image
         const scale = 2.5    
        
         const style = {
@@ -103,7 +85,7 @@ function App() {
             'transform-origin': 'top left',
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
-       }
+        }
 
         const param = {
            height: node.offsetHeight * scale,
@@ -111,7 +93,7 @@ function App() {
            style
         }
 
-        const blob = await domtoimage.toPng(node, param)
+        const blob = await htmlToImage.toPng(node, param)
         window.saveAs(blob, `your-tweet.png`)
         // window.saveAs(blob, `your-tweet.${format}`)
     }
