@@ -46,7 +46,7 @@ function App() {
     const [showMetrics, setShowMetrics] = useState(true)
     const [showSource, setShowSource] = useState(true)
 
-    const [bg, setBg] = useState('snow')
+    const [bg, setBg] = useState('linear-gradient(to right, rgb(237, 33, 58), rgb(147, 41, 30))')
     const [scale, setScale] = useState(0.9)
 
     const [hint, setHint] = useState(true)
@@ -83,8 +83,8 @@ function App() {
         const style = {
             transform: 'scale('+scale+')',
             'transform-origin': 'top left',
-            width: node.offsetWidth + "px",
-            height: node.offsetHeight + "px",
+            // width: node.offsetWidth + "px",
+            // height: node.offsetHeight + "px",
         }
 
         const param = {
