@@ -106,10 +106,10 @@ function App() {
             transformOrigin: 'top left',
             width: node.offsetWidth + "px",
             height: node.offsetHeight + "px",
-            'text-rendering': 'optimizeLegibility',
-            'font-kerning': 'inherit',
-            'font-stretch': 'normal',
-            'font-optical-sizing': 'inherit',
+            textRendering: 'optimizeLegibility',
+            fontKerning: 'inherit',
+            fontStretch: 'normal',
+            fontOpticalSizing: 'inherit',
        }
 
         const param = {
