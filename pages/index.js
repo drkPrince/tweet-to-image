@@ -74,11 +74,13 @@ function App() {
     const convert = async (format) => {
 
         const node = tweetRef.current
+        const scale = 2
 
         let dataUrl
 
+
         const style = {
-            transform: 'scale(2.5)',
+            transform: 'scale(2)',
             transformOrigin: 'top left',
             // fontFamily: `Lib, sans-serif`,
         }
@@ -94,16 +96,22 @@ function App() {
             case 'png':
                 {
                     dataUrl = await domtoimage.toPng(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
 
             case 'jpeg':
                 {
                     dataUrl = await domtoimage.toJpeg(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
 
             case 'svg':
                 {
                     dataUrl = await domtoimage.toSvg(node, param)
+                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    return
                 }
         }
 
@@ -111,8 +119,8 @@ function App() {
         // img.src = dataUrl
         // document.body.appendChild(img)
 
-        const blob = await domtoimage.toBlob(node, {transform: 'scale(1.1)'})
-        window.saveAs(blob, `your-tweet.${format}`)
+        // const blob = await domtoimage.toBlob(node, param)
+        // window.saveAs(blob, `your-tweet.${format}`)
     }
 
     const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
