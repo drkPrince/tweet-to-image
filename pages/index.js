@@ -111,7 +111,7 @@ function App() {
         // img.src = dataUrl
         // document.body.appendChild(img)
 
-        const blob = await domtoimage.toBlob(node)
+        const blob = await domtoimage.toBlob(node, param)
         window.saveAs(blob, `your-tweet.${format}`)
     }
 
