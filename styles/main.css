@@ -18,6 +18,7 @@
 body {
 	font-family: inherit;
 	font-size: 62.5%;
+	color: #14171a;
 }
 
 
@@ -52,7 +53,7 @@ footer {
 	align-items: center;
 	transition: all .1s ease-in;
 	border-radius: 6px;
-	background: rgba( 255, 255, 255, 0.56 );
+	background: rgba( 255, 255, 255, 0.50 );
 
     box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
     border: 1px rgba(255,255,255,0.4) solid;
@@ -120,7 +121,6 @@ footer {
 }
 
 .sec {
-	/*color: #657786;*/
 	color: #536371;
 }
 

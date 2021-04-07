@@ -80,8 +80,8 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	            {image && <Image src={image} mt='2' fit='cover'/>}
 	            <div className='time_source sec'>
             		<Text fontSize={font_size_small}>
-            			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy')}</span>
-            			{showSource && <span> · {source}</span>}
+            			<span>{showTime && date && format(date, 'h:mm a · LLL d, yyyy · ')}</span>
+            			{showSource && <span>{source}</span>}
             		</Text>
 	            </div>
 	            {showMetrics && <div className='metrics'>
