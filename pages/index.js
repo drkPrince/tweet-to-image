@@ -1,12 +1,10 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
 
-// import domtoimage from '../dti'
-import domtoimage from 'dom-to-image-more';
+// import domtoimage from 'dom-to-image-more';
+import domtoimage from 'dom-to-image';
 
-// import * as htmlToImage from 'html-to-image';
-// import { toPng, toJpeg, toBlob, toPixelData, toSvg } from 'html-to-image';
-
+import { saveAs } from 'file-saver'
 import download from 'downloadjs'
 
 import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
@@ -77,23 +75,44 @@ function App() {
 
         const node = tweetRef.current
 
+        let dataUrl
+
         const style = {
             transform: 'scale(2.5)',
             transformOrigin: 'top left',
-            fontFamily: `Lib, sans-serif`,
-            letterSpacing: 'initial',
+            // fontFamily: `Lib, sans-serif`,
         }
 
         const param = {
            height: node.offsetHeight * scale,
            width: node.offsetWidth * scale,
+           quality: 1,
            style
         }
 
-        const blob = await domtoimage.toPng(node, param)
-        window.saveAs(blob, `your-tweet.png`)
-        download(blob, 'your-download.png')
-        // window.saveAs(blob, `your-tweet.${format}`)
+        switch (format) {
+            case 'png':
+                {
+                    dataUrl = await domtoimage.toPng(node, param)
+                }
+
+            case 'jpeg':
+                {
+                    dataUrl = await domtoimage.toJpeg(node, param)
+                }
+
+            case 'svg':
+                {
+                    dataUrl = await domtoimage.toSvg(node, param)
+                }
+        }
+
+        // const img = new Image()
+        // img.src = dataUrl
+        // document.body.appendChild(img)
+
+        const blob = await domtoimage.toBlob(node)
+        window.saveAs(blob, `your-tweet.${format}`)
     }
 
     const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
