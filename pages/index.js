@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useState, useRef } from 'react'
 
+// import domtoimage from 'dom-to-image-more';
 import domtoimage from 'dom-to-image';
 
 import { saveAs } from 'file-saver'
+import download from 'downloadjs'
 
 import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
 
@@ -80,6 +82,7 @@ function App() {
         const style = {
             transform: 'scale(2)',
             transformOrigin: 'top left',
+            // fontFamily: `Lib, sans-serif`,
         }
 
         const param = {
@@ -111,6 +114,13 @@ function App() {
                     return
                 }
         }
+
+        // const img = new Image()
+        // img.src = dataUrl
+        // document.body.appendChild(img)
+
+        // const blob = await domtoimage.toBlob(node, param)
+        // window.saveAs(blob, `your-tweet.${format}`)
     }
 
     const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
