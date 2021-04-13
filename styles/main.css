@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 @font-face {
 	font-family: Lib;
@@ -24,6 +24,14 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
+a{
+	color: #e41a9d !important;
+}
+
+a:hover {
+	color: #e41a9dcc !important;
+	text-decoration: underline;
+}
 
 
 footer {
@@ -31,7 +39,6 @@ footer {
 	margin-top: 6rem;
 	padding-bottom: 3rem;
 }
-
 
 
 .title {
@@ -63,11 +70,11 @@ footer {
 
 
 .non-tweet {
-	min-height: 200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-size: 1.3rem;
+	text-align: center;
 }
 
 
