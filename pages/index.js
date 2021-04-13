@@ -1,16 +1,12 @@
-import axios from 'axios'
+import Head from 'next/head'
 import { useState, useRef } from 'react'
 
-// import domtoimage from 'dom-to-image-more';
+import axios from 'axios'
 import domtoimage from 'dom-to-image';
-
 import { saveAs } from 'file-saver'
-import download from 'downloadjs'
 
-import { ChevronDownIcon, DownloadIcon, SearchIcon } from '@chakra-ui/icons'
-
+import { DownloadIcon, SearchIcon } from '@chakra-ui/icons'
 import Tweet from '../components/Tweet'
-
 
 import {
     Text,
@@ -41,12 +37,11 @@ function App() {
 
     const [tweetData, setTweetData] = useState(null)
 
-
     const [showTime, setShowTime] = useState(true)
     const [showMetrics, setShowMetrics] = useState(true)
     const [showSource, setShowSource] = useState(true)
 
-    const [bg, setBg] = useState('linear-gradient(to right, rgb(237, 33, 58), rgb(147, 41, 30))')
+    const [bg, setBg] = useState('snow')
     const [scale, setScale] = useState(0.9)
 
     const [hint, setHint] = useState(true)
@@ -55,9 +50,9 @@ function App() {
 
     const bringTweet = async (e) => {
         try {
+            e.preventDefault()
             setHint(false)
             setLoading(true)
-            e.preventDefault()
             const url = e.target.elements.tweetURL.value
             const id = url.split('/')[5]
             const { data, status } = await axios.get(`/api/tweet/${id}`)
@@ -78,11 +73,9 @@ function App() {
 
         let dataUrl
 
-
         const style = {
             transform: 'scale(2)',
             transformOrigin: 'top left',
-            // fontFamily: `Lib, sans-serif`,
         }
 
         const param = {
@@ -114,25 +107,15 @@ function App() {
                     return
                 }
         }
-
-        // const img = new Image()
-        // img.src = dataUrl
-        // document.body.appendChild(img)
-
-        // const blob = await domtoimage.toBlob(node, param)
-        // window.saveAs(blob, `your-tweet.${format}`)
     }
 
+    const title_size = { base: "33px", md: "50px", lg: "55px" }
     const pic_size = { base: "90vw", md: "80vh", lg: "50vw" }
     const flex = { base: 'column', lg: 'row' }
     const padX = { base: '1rem' }
     const padY = { base: '3rem', md: '5rem' }
-
     const settingsPad = { base: '1.3rem', md: '5rem' }
-
     const font_size = { base: "16px", md: "18px", lg: "20px" }
-
-    const title_size = { base: "30px", md: "40px", lg: "55px" }
 
 
     const gradients = [
@@ -160,14 +143,19 @@ function App() {
 
     return (
         <Box>
+            <Head>
+                <title>Twipix - Get beautiful tweets</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+            </Head>
             <Box pt='20' px='4'>
-             <Text fontSize={title_size} className='title'>Convert tweets to beautiful images.</Text>
+                <Text fontSize={title_size} className='title i'>Capture tweets in a beautiful frame.</Text>
             </Box>
-            <Box my="12" align="center">
+            <Box className='i' my="12" align="center">
               <form onSubmit={bringTweet}>
                     <InputGroup maxW='90vw'>
                         <Input name='tweetURL' placeholder="https://twitter.com/drkPrns/status/1375809527690317825" />
-                        <InputRightElement children={<SearchIcon fontSize={font_size} color="blue.500" />} />
+                        <InputRightElement onClick={bringTweet} children={<SearchIcon fontSize={font_size} color="blue.500" />} />
                     </InputGroup>
               </form>
             </Box>
@@ -177,8 +165,11 @@ function App() {
                     <Box className='con' style={{background : bg}} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY} ref={tweetRef}>
                         <div className='container' style={{transform: `scale(${scale})`}} >
                             { hint ? 
-                                <Box className='non-tweet'>
-                                    <Text p='4'>Paste the URL of the tweet in the box above</Text>
+                                <Box className='non-tweet' py='8rem' flexDirection='column'>
+                                    <Box>
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="8rem" height="8rem"><path fill="none" d="M0 0h24v24H0z"/><path d="M22.162 5.656a8.384 8.384 0 0 1-2.402.658A4.196 4.196 0 0 0 21.6 4c-.82.488-1.719.83-2.656 1.015a4.182 4.182 0 0 0-7.126 3.814 11.874 11.874 0 0 1-8.62-4.37 4.168 4.168 0 0 0-.566 2.103c0 1.45.738 2.731 1.86 3.481a4.168 4.168 0 0 1-1.894-.523v.052a4.185 4.185 0 0 0 3.355 4.101 4.21 4.21 0 0 1-1.89.072A4.185 4.185 0 0 0 7.97 16.65a8.394 8.394 0 0 1-6.191 1.732 11.83 11.83 0 0 0 6.41 1.88c7.693 0 11.9-6.373 11.9-11.9 0-.18-.005-.362-.013-.54a8.496 8.496 0 0 0 2.087-2.165z" fill="#1DA1F2"/></svg>
+                                    </Box>
+                                    <Text className='i' p='4' color='gray.700' textAlign='center'>Welcome, Paste the URL of the tweet in the box above</Text>
                                 </Box>
                             : 
                             loading ? <Box className='non-tweet'><Spinner /> </Box>
@@ -199,7 +190,7 @@ function App() {
 
                 {
                     !hint && (
-                        <Box px={settingsPad} color="gray.700" className='settings' >
+                        <Box px={settingsPad} color="gray.700" className='settings i' >
 
                             <Box mt='12'>
                                 <FormLabel color='gray.900' fontSize={font_size}  htmlFor="show_time" display="flex" alignItems="center" >Show elements</FormLabel>
@@ -263,7 +254,7 @@ function App() {
             </Flex>
 
             <footer>
-                <Text color='gray.500' fontSize='lg'>Made with 💜 and grit by Prince.</Text>
+                <Text className='i' color='gray.500' fontSize='lg'>Made with 💜 for open source by Prince. Check out on <a href="http://github.com/drkPrince/tweet-to-image" target='blank'>Github</a>.</Text>
             </footer>
       </Box>
     )

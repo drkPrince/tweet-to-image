@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;700&display=swap');
 
 @font-face {
 	font-family: Lib;
@@ -10,21 +10,20 @@
 	src: url('/LiberationSans-Bold.ttf');
 }
 
-* {
-	font-family: Lib, sans-serif;
-}
-
-
 body {
-	font-family: inherit;
+	font-family: Lib, sans-serif;
 	font-size: 62.5%;
 	color: #14171a;
 }
 
-
 .bold {
 	font-family: 'Lib-Bold';
 }
+
+.i {
+	font-family: 'Inter', sans-serif;
+}
+
 
 
 footer {
@@ -38,9 +37,9 @@ footer {
 .title {
 	font-size: 4rem;
 	background: linear-gradient(to right, #1DA1F2, #e41a9d);
+	font-weight: 600;
 	background-clip: text;
 	color: transparent;
-	font-family: Lib-Bold;
 	text-align: center;
 }
 
@@ -55,7 +54,7 @@ footer {
 	border-radius: 6px;
 	background: rgba( 255, 255, 255, 0.50 );
 
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 8px 8px;
     border: 1px rgba(255,255,255,0.4) solid;
     border-bottom: 1px rgba(40,40,40,0.30) solid;
     border-right: 1px rgba(40,40,40,0.30) solid;
@@ -86,7 +85,6 @@ footer {
 
 .name {
 	display: flex;
-
 }
 
 .n {
@@ -125,6 +123,5 @@ footer {
 }
 
 p {
-
 	min-width: 100%;
 }
