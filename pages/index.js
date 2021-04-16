@@ -16,6 +16,8 @@ function App() {
     
     const [bg, setBg] = useState('linear-gradient(106.8deg, rgb(117, 255, 220) 6%, rgb(163, 216, 255) 47.6%, rgb(248, 215, 251) 87.8%)')
 
+    const tweetRef = useRef(null)
+
     const [tweetData, setTweetData] = useState(null)
 
     const [showTime, setShowTime] = useState(true)
@@ -106,7 +108,7 @@ function App() {
             <Header bringTweet={bringTweet}/>
             
             <Flex my="16" direction={flex} p="4">
-                <Main bg={bg} scale={scale} hint={hint} loading={loading} error={error} tweetData={tweetData} showTime={showTime} showMetrics={showMetrics} showSource={showSource} />
+                <Main tweetRef={tweetRef} bg={bg} scale={scale} hint={hint} loading={loading} error={error} tweetData={tweetData} showTime={showTime} showMetrics={showMetrics} showSource={showSource} />
                 {!hint && <Settings props={propsForSettings}/>}
             </Flex>
 

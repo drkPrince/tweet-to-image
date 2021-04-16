@@ -20,8 +20,9 @@ import {DownloadIcon} from '@chakra-ui/icons'
 
 const Settings = ({props}) => {
 
-	const settingsPad = { base: '1.3rem', md: '5rem' }
-	const font_size = { base: "16px", md: "18px", lg: "20px" }
+	const settingsPad = { base: '0.7rem', md: '5rem' }
+    const font_size = { base: "16px", md: "18px", lg: "20px" }
+	const font_size_small = { base: "13px", md: "15px", lg: "17px" }
 
 	const gradients = [
 	    'linear-gradient(to right, #eecda3, #ef629f)',
@@ -52,22 +53,22 @@ const Settings = ({props}) => {
 
             <Box mt='12'>
                 <FormLabel color='gray.900' fontSize={font_size}  htmlFor="show_time" display="flex" alignItems="center" >Show elements</FormLabel>
-                <Flex justify="space-between" align="center" name='settings'>
+                <Flex justify="space-between" align="center" name='settings' wrap='wrap'>
                 
-                    <Flex align="baseline">
-                        <FormLabel htmlFor="show_source" display="flex" alignItems="center" >Source</FormLabel>
+                    <Flex align="baseline" mr='0.5rem'>
+                        <FormLabel fontSize={font_size_small} htmlFor="show_source" display="flex" alignItems="center" >Source</FormLabel>
                         <Switch size="md" id="show_source" isChecked={props.showSource} onChange={()=>props.setShowSource(!props.showSource)} />
                     </Flex>
                 
                 
-                    <Flex align="baseline">
-                        <FormLabel htmlFor="show_time" display="flex" alignItems="center" >Time</FormLabel>
+                    <Flex align="baseline" mr='0.5rem'>
+                        <FormLabel fontSize={font_size_small} htmlFor="show_time" display="flex" alignItems="center" >Time</FormLabel>
                         <Switch size="md" id="show_time" isChecked={props.showTime} onChange={()=>props.setShowTime(!props.showTime)} />
                     </Flex>
                 
                 
-                    <Flex align="baseline">
-                        <FormLabel htmlFor="show_metrics" display="flex" alignItems="center" >Metrics</FormLabel>
+                    <Flex align="baseline" mr='0.5rem'>
+                        <FormLabel fontSize={font_size_small} htmlFor="show_metrics" display="flex" alignItems="center" >Metrics</FormLabel>
                         <Switch size="md" id="show_metrics" isChecked={props.showMetrics} onChange={()=>props.setShowMetrics(!props.showMetrics)} />
                     </Flex>
                 </Flex>
