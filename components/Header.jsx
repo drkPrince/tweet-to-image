@@ -11,7 +11,7 @@ const Header = ({bringTweet}) => {
 	            <Text fontSize={title_size} className='title i'>Capture tweets in a beautiful frame.</Text>
 	        </Box>
 	        <Box className='i' my="12" align="center">
-	          <form onSubmit={bringTweet}>
+	          <form onSubmit={bringTweet} autoComplete='off'>
 	                <InputGroup maxW='90vw'>
 	                    <Input name='tweetURL' placeholder="https://twitter.com/drkPrns/status/1375809527690317825" />
 	                    <InputRightElement>

@@ -38,9 +38,16 @@ function App() {
             const url = e.target.elements.tweetURL.value
             const id = url.split('/')[5]
             const { data, status } = await axios.get(`/api/tweet/${id}`)
-            setLoading(false)
-            setTweetData(data.data)
-            setError(false)
+            if(data.message){
+                setError(true)
+                setLoading(false)
+                setTweetData(null)
+            }
+            else {
+                setLoading(false)
+                setTweetData(data.data)
+                setError(false)
+            }
         } catch (e) {
             setError(true)
             setLoading(false)
