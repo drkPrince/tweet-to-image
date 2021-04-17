@@ -10,7 +10,9 @@ import Settings from '../components/Settings'
 
 import {Text, Box, Flex} from "@chakra-ui/react"
 
-function App() {
+
+function App() 
+{
     
     const [bg, setBg] = useState('linear-gradient(106.8deg, rgb(117, 255, 220) 6%, rgb(163, 216, 255) 47.6%, rgb(248, 215, 251) 87.8%)')
 
@@ -76,33 +78,21 @@ function App() {
             case 'png':
                 {
                     dataUrl = await domtoimage.toPng(node, param)
-                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
-                    const link = document.createElement('a')
-                    link.download = `${new Date().toJSON()}.png`
-                    link.href = dataUrl
-                    link.click()
+                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
                     return
                 }
 
             case 'jpeg':
                 {
                     dataUrl = await domtoimage.toJpeg(node, param)
-                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
-                    const link = document.createElement('a')
-                    link.download = `${new Date().toJSON()}.jpeg`
-                    link.href = dataUrl
-                    link.click()
+                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
                     return
                 }
 
             case 'svg':
                 {
                     dataUrl = await domtoimage.toSvg(node, param)
-                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
-                    const link = document.createElement('a')
-                    link.download = `${new Date().toJSON()}.svg`
-                    link.href = dataUrl
-                    link.click()
+                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
                     return
                 }
         }

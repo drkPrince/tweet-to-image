@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🐦 Twipix - Convert tweets to beautiful images.
 
-## Getting Started
 
-First, run the development server:
+![Next](https://img.shields.io/badge/NextJS-10.1.3-000000)
+![dom-to-image](https://img.shields.io/badge/dom_to_image-^2.6.0-1e0b99)
+![Chakra UI](https://img.shields.io/badge/Chakra_UI-^1.4.2-319795)
+![Chakra UI](https://img.shields.io/badge/Twitter-API-1DA1F2)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[Check out the website](http://twipix.vercel.app). If you like it, or find it useful in any way, drop a 🌟 at the repo. Why? Because it keeps a beginner moving forward 😄.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## What it does?
+Twipix is a simple web app made with **NextJS, Twitter API and Chakra UI** that converts your favourite tweets to an image. You can choose between formats PNG, JPEG and SVG.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+### The Home Page
+<img src="https://github.com/drkPrince/tweet-to-image/blob/main/screenshots/home.png" />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Customising tweets's looks
+<img src="https://github.com/drkPrince/tweet-to-image/blob/main/screenshots/settings.png" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Todo
+- Ability to select ratio for the output image (1:1, 9:16).
+- Add more customisation options (suggestions welcome).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
+[Prince Kumar Singh](http://www.twitter.com/drkPrns)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Disclaimer
+This is not affiliated to Twitter in any way. It's just a side project made for learning purposes. No copyright infringement intended.
+
