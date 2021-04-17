@@ -4,13 +4,12 @@ import { useState, useRef } from 'react'
 import axios from 'axios'
 import domtoimage from 'dom-to-image'
 import { saveAs } from 'file-saver'
-
+import { v4 as uuidv4 } from 'uuid';
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Settings from '../components/Settings'
 
 import {Text, Box, Flex} from "@chakra-ui/react"
-
 
 function App() {
     
@@ -78,21 +77,21 @@ function App() {
             case 'png':
                 {
                     dataUrl = await domtoimage.toPng(node, param)
-                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    saveAs(dataUrl, `${uuidv4()}.${format}`)
                     return
                 }
 
             case 'jpeg':
                 {
                     dataUrl = await domtoimage.toJpeg(node, param)
-                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    saveAs(dataUrl, `${uuidv4()}.${format}`)
                     return
                 }
 
             case 'svg':
                 {
                     dataUrl = await domtoimage.toSvg(node, param)
-                    window.saveAs(dataUrl, `your-tweet.${format}`)
+                    saveAs(dataUrl, `${uuidv4()}.${format}`)
                     return
                 }
         }
