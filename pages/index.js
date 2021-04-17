@@ -36,9 +36,16 @@ function App() {
             const url = e.target.elements.tweetURL.value
             const id = url.split('/')[5]
             const { data, status } = await axios.get(`/api/tweet/${id}`)
-            setLoading(false)
-            setTweetData(data.data)
-            setError(false)
+            if(data.message){
+                setError(true)
+                setLoading(false)
+                setTweetData(null)
+            }
+            else {
+                setLoading(false)
+                setTweetData(data.data)
+                setError(false)
+            }
         } catch (e) {
             setError(true)
             setLoading(false)
@@ -69,21 +76,33 @@ function App() {
             case 'png':
                 {
                     dataUrl = await domtoimage.toPng(node, param)
-                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    const link = document.createElement('a')
+                    link.download = `${new Date().toJSON()}.png`
+                    link.href = dataUrl
+                    link.click()
                     return
                 }
 
             case 'jpeg':
                 {
                     dataUrl = await domtoimage.toJpeg(node, param)
-                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    const link = document.createElement('a')
+                    link.download = `${new Date().toJSON()}.jpeg`
+                    link.href = dataUrl
+                    link.click()
                     return
                 }
 
             case 'svg':
                 {
                     dataUrl = await domtoimage.toSvg(node, param)
-                    saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    // saveAs(dataUrl, `${new Date().toJSON()}.${format}`)
+                    const link = document.createElement('a')
+                    link.download = `${new Date().toJSON()}.svg`
+                    link.href = dataUrl
+                    link.click()
                     return
                 }
         }
