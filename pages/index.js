@@ -108,7 +108,7 @@ function App()
     return (
         <Box>
             <Head>
-                <title>Twipix - Get beautiful tweets</title>
+                <title>Twimage - Create beautiful tweets</title>
                 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
             </Head>
 

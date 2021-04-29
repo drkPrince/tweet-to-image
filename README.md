@@ -1,4 +1,4 @@
-# 🐦 Twipix - Convert tweets to beautiful images.
+# 🐦 Twimage - Convert tweets to beautiful images.
 
 
 ![Next](https://img.shields.io/badge/NextJS-10.1.3-000000)
@@ -7,11 +7,11 @@
 ![Chakra UI](https://img.shields.io/badge/Twitter-API-1DA1F2)
 
 
-[Check out the website](http://twipix.vercel.app). If you like it, or find it useful in any way, drop a 🌟 at the repo. Why? Because it keeps a beginner moving forward 😄.
+[Check out the website](http://twimage.vercel.app). If you like it, or find it useful in any way, drop a 🌟 at the repo. Why? Because it keeps a beginner moving forward 😄.
 
 
 ## What it does?
-Twipix is a simple web app made with **NextJS, Twitter API and Chakra UI** that converts your favourite tweets to an image. You can choose between formats PNG, JPEG and SVG.
+Twimage is a simple web app made with **NextJS, Twitter API and Chakra UI** that converts your favourite tweets to an image. You can choose between formats PNG, JPEG and SVG.
 
 
 ## Screenshots
