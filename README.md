@@ -19,7 +19,7 @@ Twimage is a simple web app made with **NextJS, Twitter API and Chakra UI** that
 ### The Home Page
 <img src="https://github.com/drkPrince/tweet-to-image/blob/main/screenshots/home.png" />
 
-### Customising tweets's looks
+### Customising tweet
 <img src="https://github.com/drkPrince/tweet-to-image/blob/main/screenshots/settings.png" />
 
 
