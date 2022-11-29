@@ -36,37 +36,19 @@ const Main = ({ scale, hint, loading, error, tweetData, bg, showTime, showMetric
         }
     }
 
-    let boxStyle;
-
-    if (ratio === '') {
-        boxStyle = { aspectRatio: "auto" }
-    }
-
-    if (ratio === "1") {
-        boxStyle = { aspectRatio: '1 / 1' }
-    }
-
-    if (ratio === "2") {
-        boxStyle = { aspectRatio: '16 / 9' }
-    }
-
     return (
-
-        <Box m='0 auto'>
-            <Box className="con" style={{ background: bg, aspectRatio: boxStyle.aspectRatio }} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY} ref={tweetRef}>
-
-                <div className="container" style={{ transform: `scale(${scale})` }} >
+        <Box m="0 auto">
+            <Box className='con' style={{ background: bg }} minW={pic_size} maxW={pic_size} rounded="sm" px={padX} py={padY} ref={tweetRef}>
+                <div className='container' style={{ transform: `scale(${scale})` }} >
                     {
                         tweetData && <Tweet
                             tweet={tweetData}
                             showTime={showTime}
                             showMetrics={showMetrics}
                             showSource={showSource}
-                            showTwitterIcon={showTwitterIcon}
                         />
                     }
                 </div>
-
             </Box>
         </Box >
 

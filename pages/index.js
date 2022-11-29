@@ -19,60 +19,63 @@ function App() {
 
   const [tweetData, setTweetData] = useState(null);
 
-  const [showTime, setShowTime] = useState(true);
-  const [showMetrics, setShowMetrics] = useState(true);
-  const [showSource, setShowSource] = useState(true);
-  const [showTwitterIcon, setShowTwitterIcon] = useState(true)
+    const tweetRef = useRef(null)
 
-  const [scale, setScale] = useState(0.9);
- 
-  const [hint, setHint] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+    const [tweetData, setTweetData] = useState(null)
 
-  const [ratio, setRatio] = useState('')
- 
-  const bringTweet = async (e) => {
-    try {
-      e.preventDefault();
-      setHint(false);
-      setLoading(true);
-      const url = e.target.elements.tweetURL.value;
-      const id = url.split("/")[5];
-      const { data, status } = await axios.get(`/api/tweet/${id}`);
-      if (data.message) {
-        setError(true);
-        setLoading(false);
-        setTweetData(null);
-      } else {
-        setLoading(false);
-        setTweetData(data.data);
-        setError(false);
-      }
-    } catch (e) {
-      setError(true);
-      setLoading(false);
-      setTweetData(null);
+    const [showTime, setShowTime] = useState(true)
+    const [showMetrics, setShowMetrics] = useState(true)
+    const [showSource, setShowSource] = useState(true)
+    
+    const [scale, setScale] = useState(0.9)
+
+    const [hint, setHint] = useState(true)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+
+    const bringTweet = async (e) => {
+        try {
+            e.preventDefault()
+            setHint(false)
+            setLoading(true)
+            const url = e.target.elements.tweetURL.value
+            const id = url.split('/')[5]
+            const { data, status } = await axios.get(`/api/tweet/${id}`)
+            if(data.message){
+                setError(true)
+                setLoading(false)
+                setTweetData(null)
+            }
+            else {
+                setLoading(false)
+                setTweetData(data.data)
+                setError(false)
+            }
+        } catch (e) {
+            setError(true)
+            setLoading(false)
+            setTweetData(null)
+        }
     }
-  };
 
+    const convert = async (format) => {
 
-  const convert = async (format) => {
-    const node = tweetRef.current;
-    const scale = 2;
-    let dataUrl;
+        const node = tweetRef.current
+        const scale = 2
 
-    const style = {
-      transform: "scale(2)",
-      transformOrigin: "center left",
-    };
+        let dataUrl
 
-    const param = {
-      height: node.offsetHeight * scale,
-      width: node.offsetWidth * scale,
-      quality: 1,
-      style
-    };
+        const style = {
+            transform: 'scale(2)',
+            transformOrigin: 'top left',
+        }
+
+        const param = {
+           height: node.offsetHeight * scale,
+           width: node.offsetWidth * scale,
+           quality: 1,
+           style
+        }
 
     switch (format) {
       case "png": {
@@ -95,23 +98,9 @@ function App() {
     }
   };
 
-  const propsForSettings = {
-    showTime,
-    setShowTime,
-    showMetrics,
-    setShowMetrics,
-    showSource,
-    setShowSource,
-    showTwitterIcon,
-    setShowTwitterIcon,
-    scale,
-    setScale,
-    convert,
-    bg,
-    setBg,
-    ratio,
-    setRatio,
-  };
+    const propsForSettings = {
+        showTime, setShowTime, showMetrics, setShowMetrics, showSource, setShowSource, scale, setScale, convert, bg, setBg
+    }
 
   const flex = { base: "column", lg: "row" };
 
@@ -122,25 +111,12 @@ function App() {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
 
-      <Header bringTweet={bringTweet} />
-
-      <Flex my="16" direction={flex} p="4">
-        <Main
-          tweetRef={tweetRef}
-          bg={bg}
-          scale={scale}
-          hint={hint}
-          loading={loading}
-          error={error}
-          tweetData={tweetData}
-          showTime={showTime}
-          showMetrics={showMetrics}
-          showSource={showSource}
-          showTwitterIcon={showTwitterIcon}
-          ratio={ratio}
-        />
-        {!hint && <Settings props={propsForSettings} />}
-      </Flex>
+            <Header bringTweet={bringTweet}/>
+            
+            <Flex my="16" direction={flex} p="4">
+                <Main tweetRef={tweetRef} bg={bg} scale={scale} hint={hint} loading={loading} error={error} tweetData={tweetData} showTime={showTime} showMetrics={showMetrics} showSource={showSource} />
+                {!hint && <Settings props={propsForSettings}/>}
+            </Flex>
 
       <footer>
         <Text px="1rem" className="i" color="gray.500" fontSize="lg">
