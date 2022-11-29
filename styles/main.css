@@ -53,19 +53,12 @@ footer {
 
 
 .container {
-	white-space: pre-line;
-	display: flex;
+	white-space: pre-line; 
+	display: flex; 
 	justify-content: center;
-	align-items: center;
+	align-content: 'center' ;
 	transition: all .1s ease-in;
-	position: relative;
-
-	/*background: rgba( 255, 255, 255, 0.50 );
-	border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.2) 2px 8px 8px;
-    border: 1px rgba(255,255,255,0.4) solid;
-    border-bottom: 1px rgba(40,40,40,0.30) solid;
-    border-right: 1px rgba(40,40,40,0.30) solid;*/
+	position: relative; 
 }
 
 .container:before {
@@ -76,10 +69,12 @@ footer {
 	z-index: -1;
 	background: rgba( 255, 255, 255, 0.4 );
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.4 );
-	/*backdrop-filter: blur( 4px );*/
-	/*-webkit-backdrop-filter: blur( 4px );*/
-	border-radius: 8px;
+	border-radius: 18px;
 	border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.con {
+    transition: all 2s !important;
 }
 
 

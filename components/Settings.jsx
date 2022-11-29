@@ -20,7 +20,7 @@ import {DownloadIcon} from '@chakra-ui/icons'
 
 const Settings = ({props}) => {
 
-	const settingsPad = { base: '0.7rem', md: '5rem' }
+	const settingsPad = { base: '0.7rem', md: '6rem' }
     const font_size = { base: "16px", md: "18px", lg: "20px" }
 	const font_size_small = { base: "13px", md: "15px", lg: "17px" }
 
@@ -49,7 +49,7 @@ const Settings = ({props}) => {
 
 
 	return (
-		<Box px={settingsPad} color="gray.700" className='settings i' >
+		<Box px={settingsPad} color="gray.700" className='settings i'  >
 
             <Box mt='12'>
                 <FormLabel color='gray.900' fontSize={font_size}  htmlFor="show_time" display="flex" alignItems="center" >Show elements</FormLabel>

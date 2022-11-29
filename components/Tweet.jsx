@@ -2,7 +2,7 @@
 import {format} from 'date-fns'
 import { Box, Text, Image } from "@chakra-ui/react"
 
-const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
+const Tweet = ({tweet, showTime, showMetrics, showSource}) => {
 
 
 	const urls = tweet.data?.entities?.urls
@@ -59,7 +59,7 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 	const pad = { base: "1rem", md: "1.5rem", lg: "2rem" }
 
 	return (
-		<Box p={pad} rounded="sm" >
+		<Box p={pad} rounded="sm">
 			<div className='tweet'>
 	            <div className="user">
 	            	<Image src={dp} boxSize={img_size} borderRadius="full" />
@@ -95,16 +95,3 @@ const Tweet = ({tweet, showTime, showMetrics, showSource, showImage}) => {
 
 export default Tweet
 
-/* 
-
-{showSource && <span> · {source}</span>}
-
-
-<Text fontSize={font_size_small} className='bold likes'>
-	{modLikes} <span className='sec'> Likes</span>
-</Text>
-<Text fontSize={font_size_small} className='bold'>
-	{modRetweets} <span className='sec'> Retweets</span>
-</Text>
-
- */
