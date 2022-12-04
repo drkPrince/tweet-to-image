@@ -22,13 +22,16 @@ function App() {
   const [showTime, setShowTime] = useState(true);
   const [showMetrics, setShowMetrics] = useState(true);
   const [showSource, setShowSource] = useState(true);
+  const [showTwitterIcon, setShowTwitterIcon] = useState(true)
 
   const [scale, setScale] = useState(0.9);
-
+ 
   const [hint, setHint] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const [ratio, setRatio] = useState('')
+ 
   const bringTweet = async (e) => {
     try {
       e.preventDefault();
@@ -53,22 +56,22 @@ function App() {
     }
   };
 
+
   const convert = async (format) => {
     const node = tweetRef.current;
     const scale = 2;
-
     let dataUrl;
 
     const style = {
       transform: "scale(2)",
-      transformOrigin: "top left",
+      transformOrigin: "center left",
     };
 
     const param = {
       height: node.offsetHeight * scale,
       width: node.offsetWidth * scale,
       quality: 1,
-      style,
+      style
     };
 
     switch (format) {
@@ -99,11 +102,15 @@ function App() {
     setShowMetrics,
     showSource,
     setShowSource,
+    showTwitterIcon,
+    setShowTwitterIcon,
     scale,
     setScale,
     convert,
     bg,
     setBg,
+    ratio,
+    setRatio,
   };
 
   const flex = { base: "column", lg: "row" };
@@ -129,6 +136,8 @@ function App() {
           showTime={showTime}
           showMetrics={showMetrics}
           showSource={showSource}
+          showTwitterIcon={showTwitterIcon}
+          ratio={ratio}
         />
         {!hint && <Settings props={propsForSettings} />}
       </Flex>
