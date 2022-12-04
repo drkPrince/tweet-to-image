@@ -40,22 +40,21 @@ footer {
 
 .con {
 	transition: all 2s !important;
+	transition: all 2s !important;
 }
 
 .container {
 	white-space: pre-line;
 	display: flex;
 	justify-content: center;
-	align-items: 'center';
+	align-items: center;
 	transition: all .1s ease-in;
-	border-radius: 6px;
+	border-radius: 18px;
 	background: rgba(255, 255, 255, 0.56);
-
 	box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px;
 	border: 1px rgba(255, 255, 255, 0.4) solid;
 	border-bottom: 1px rgba(40, 40, 40, 0.30) solid;
 	border-right: 1px rgba(40, 40, 40, 0.30) solid;
-
 }
 
 .tweet {

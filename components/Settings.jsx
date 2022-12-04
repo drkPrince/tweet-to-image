@@ -47,8 +47,10 @@ const Settings = ({ props }) => {
         'linear-gradient(110.7deg, rgb(9, 154, 151) 6.3%, rgb(21, 205, 168) 90.6%)'
     ]
 
+
+
     return (
-        <Box px={settingsPad} color="gray.700" className='settings i' >
+        <Box px={settingsPad} color="gray.700" className='settings i'  >
 
             <Box mt='12'>
                 <FormLabel color='gray.900' fontSize={font_size} htmlFor="show_time" display="flex" alignItems="center" >Show elements</FormLabel>
