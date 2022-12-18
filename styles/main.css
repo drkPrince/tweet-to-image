@@ -24,7 +24,7 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
-a{
+a {
 	color: #e41a9d !important;
 }
 
@@ -56,32 +56,29 @@ footer {
 	white-space: pre-line;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-content: center;
 	transition: all .1s ease-in;
 	position: relative;
-
-	/*background: rgba( 255, 255, 255, 0.50 );
-	border-radius: 6px;
-    box-shadow: rgba(0, 0, 0, 0.2) 2px 8px 8px;
-    border: 1px rgba(255,255,255,0.4) solid;
-    border-bottom: 1px rgba(40,40,40,0.30) solid;
-    border-right: 1px rgba(40,40,40,0.30) solid;*/
 }
 
 .container:before {
-	content:'';
+	content: '';
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	z-index: -1;
-	background: rgba( 255, 255, 255, 0.4 );
-	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.4 );
-	/*backdrop-filter: blur( 4px );*/
-	/*-webkit-backdrop-filter: blur( 4px );*/
-	border-radius: 8px;
-	border: 1px solid rgba( 255, 255, 255, 0.18 );
+	background: rgba(255, 255, 255, 0.4);
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.4);
+	border-radius: 18px;
+	border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.con {
+	transition: all 2s !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .non-tweet {
 	display: flex;
@@ -118,12 +115,13 @@ footer {
 }
 
 .user-img {
-	width: 3rem; height: 3rem;
+	width: 3rem;
+	height: 3rem;
 	border-radius: 1000px;
 }
 
 
-.time_source {	
+.time_source {
 	display: flex;
 	align-items: center;
 	margin-top: 0.7rem;
@@ -147,6 +145,3 @@ p {
 	min-width: 100%;
 	z-index: 10;
 }
-
-
-
